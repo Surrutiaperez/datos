@@ -1,75 +1,75 @@
-<!DOCTYPEhtml >
-< html  lang =" es " >
-< cabeza >
-  < juego de caracteres meta  =" utf-8 " >
-  < título > </ título >
-  < estilo >
-      cuerpo {
-        color de fondo : azul claro;
-        alineación de texto : centro;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <style>
+      body {
+        background-color: lightblue;
+        text-align: center;
       }
       
-      . anillo lds {
-  pantalla : bloque en línea;
-  posición : relativa;
-  ancho :  80 píxeles ;
-  altura :  80 píxeles ;
+      .lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
 }
-. lds-anillo  div {
-  tamaño de caja : cuadro de borde;
-  pantalla : bloque;
-  posición : absoluta;
-  ancho :  64 píxeles ;
-  altura :  64 píxeles ;
-  margen :  8 px ;
-  borde :  8 px sólido #fff ; _
-  borde-radio :  50 % ;
-  animación : lds-ring 1.2 s  cubic-bezier ( 0.5 ,  0 ,  0.5 ,  1 ) infinito;
-  border-color :  # fff transparente transparente transparente;
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border: 8px solid #fff;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #fff transparent transparent transparent;
 }
-. lds-ring  div : nth-child ( 1 ) {
-  animación-retraso :  -0.45 s ;
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
 }
-. lds-ring  div : nth-child ( 2 ) {
-  animación-retraso :  -0.3 s ;
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
 }
-. lds-ring  div : nth-child ( 3 ) {
-  animación-retraso :  -0.15 s ;
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
 }
-@keyframes lds-anillo {
-  0 % {
-    transformar :  rotar ( 0 grados );
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
   }
-  100 % {
-    transformar :  rotar ( 360 grados );
+  100% {
+    transform: rotate(360deg);
   }
 }
-  </ estilo >
-</ cabeza >
-< cuerpo >
-  < guión >
-    constante  AS_URL_BASE  =  "" ;
-    const  AS_URL_BASE  =  " https://script.google.com/macros/s/AKfycbxmpr9PrhxFm-BDq7RZ1X6ytsxBC-m72oMHNnaJlEJ33Sm1MQsPZtcgItdbsIhMYSgYdA/exec " ;
+  </style>
+</head>
+<body>
+  <script>
+    const AS_URL_BASE = "";
+    const AS_URL_BASE = "";
 
-    var  url  =  documento . ubicación _ href ;
-    var  k  =  URL . substr ( url . lastIndexOf ( "k=" ) + 2 ) ;
+    var url = document.location.href;
+    var k = url.substr(url.lastIndexOf("k=")+2);
     
-    si ( k ) {
-      buscar ( AS_URL_BASE + '?k=' + k )
-      . entonces ( r  =>  r . texto ( ) )
-      . entonces ( ( r )  =>  {
-        consola _ registro ( r ) ;
-        //documento.escribir(r);
-        si ( r ) {
-          documento _ ubicación _ reemplazar ( r ) ;
+    if(k){
+      fetch(AS_URL_BASE+'?k='+k)
+      .then(r => r.text())
+      .then((r) => {
+        console.log(r);
+        //document.write(r);
+        if(r){
+          document.location.replace(r);
         }
-      } )
-      . catch ( err  =>  consola . log ( err ) )
+      })
+      .catch(err => console.log(err))
     }
-  </ guión >
+  </script>
   
-  < div  class =" lds-ring " > < div > </ div > < div > < / div > < div > < / div > < div > </ div > </ div >
+  <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
   
   
-</ cuerpo >
-</html> _ _
+</body>
+</html>
